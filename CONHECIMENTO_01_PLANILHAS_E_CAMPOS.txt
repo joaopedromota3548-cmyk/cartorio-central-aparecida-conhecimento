@@ -1,0 +1,82 @@
+BASE DE CONHECIMENTO 01 — PLANILHAS DE CONTROLE DO CARTORIO CENTRAL DM APARECIDA/SP
+(Dados de referencia para preenchimento de pacotes. Conferido no arquivo real em 07/07/2026.)
+
+== PLANILHA MESTRA CARTORIO_CENTRAL_DM_APARECIDA.xlsx — 26 ABAS (ordem real) ==
+1 PAINEL (dashboard mensal automatico) | 2 DASH. (dashboard anual) | 3 TAREFAS (agenda do dia) | 4 BOs (porta de entrada, dados a partir da linha 5) | 5 IPs (inqueritos, linha 6) | 6 TCs (termos circunstanciados, linha 6) | 7 AIs (atos infracionais, linha 6) | 8 MPUs (medidas protetivas, linha 6) | 9 COTAS (cotas ministeriais, linha 6) | 10 CPs (cartas precatorias, linha 6) | 11 CORRESP. (oficios/requisicoes, linha 4) | 12 ARM. CUST. (armas de fogo) | 13 SIMUL. (simulacros) | 14 ARMAS B. (armas brancas) | 15 DROGAS CUST. (entorpecentes) | 16 CEL. (celulares) | 17 VEIC. (veiculos) | 18 DINH. (dinheiro) | 19 DEMAIS OBJ. (outros objetos) | 20 PROTOC. OBJ. (protocolo de objetos — localizacao atual) | 21 MOVIM. OBJ. (movimentacoes de objetos) | 22 PERICIAS (requisicoes e laudos) | 23 REDISTR. IP | 24 PRONT. (prontuarios) | 25 LISTAS (dominios de validacao) | 26 CHANGELOG (revisoes estruturais).
+Chaves primarias: Nº do BO (coluna B da aba BOs; coluna E das abas de custodia) e Nº do IP (coluna C da aba IPs). Cruzamento de custodia tambem por Nº do Lacre.
+
+== ABA BOs — LAYOUT v2.1 (cabecalho na linha 4; conferido no arquivo em 07/07/2026) ==
+A Nº (formula automatica — nunca preencher) | B Nº do BO (ex.: DF8667) | C Ano | D Data | E Endereco do Fato | F Autor(es) | G Crime | H Art./Lei | I Vitima(s) | J Outras Pessoas | K Outros Objetos | L Armas de Fogo | M Drogas | N Armas Brancas | O Celulares | P Dinheiro | Q Veiculo | R Despacho | S Observacao (pente-fino, detalhes, lacres) | T Flagrante | U Analise Aprofundada (curadoria manual do Escrivao-Chefe — nunca sobrescrever).
+Colunas K a Q sao bandeiras: valores validos somente "Sim" ou "Nao". Bandeira "Sim" dispara a fila de pendentes (zona de raio) da aba de custodia correspondente: K->DEMAIS OBJ.; L->ARM. CUST.; M->DROGAS CUST.; N->ARMAS B.; O->CEL.; P->DINH.; Q->VEIC.
+
+== ABA IPs — 25 COLUNAS (dados a partir da linha 6) ==
+A Controle Interno (NNN/26) | B Nº contador | C IP nº (CHAVE) | D Ano | E Origem | F Nº RDO | G Ano RDO | H Natureza/Art. | I Data Instauracao | J Tipo (lista TIPO_INSTAURACAO) | K IPe | L Processo CNJ | M Vara | N Vitima | O Indiciado | P Delegado | Q Data Entrada Cartorio | R Prontuario | S Escrivao (lista ESCRIVAES) | T Data Relatorio | U Nº Protocolo | V Status (lista STATUS_IP) | W Observacao | X Vinculacao BO | Y Flagrante.
+Nº do IP para estatistica: sem o sufixo .1512. Flagrante reu preso: coluna C = coluna K = numero do procedimento.
+
+== DEMAIS ABAS DE PROCEDIMENTO (dados linha 6) ==
+TCs (16 col.): A Nº | B TCO nº | C Ano | D Nº RDO | E Ano RDO | F Natureza/Art. | G Data Fato | H IPe | I Processo CNJ | J Vara | K Vitima | L Autor | M Escrivao | N Status (STATUS_TC) | O Prontuario | P Observacao.
+AIs: identica a TCs, com B Procedimento nº, F Ato Infracional/Art., L Adolescente, N STATUS_AI.
+MPUs (16 col.): A Nº | B Controle | C Ano | D Nº RDO | E Ano RDO | F Natureza/Art. | G Data Entrada | H IPe/IP Vinculado | I Processo CNJ | J Vara | K Vitima | L Agressor | M Escrivao | N Status (STATUS_MP) | O Prontuario | P Observacao.
+COTAS (17 col.): A Nº Cota | B Tipo (TIPO_COTA) | C Nº Procedimento (TEXTO — nao truncar 19 digitos) | D Ano | E Nº RDO | F Ano RDO | G Natureza/Art. | H Data Entrada | I IPe | J Processo CNJ | K Vara | L Vitima | M Indiciado | N Diligencias Requeridas | O Status (STATUS_COTA) | P Data Cumprimento | Q Escrivao.
+CPs (15 col.): A Nº | B CP nº | C Ano | D Delegacia Origem | E CP Origem | F Data Entrada | G Diligencia | H Envolvido | I Natureza/Art. | J Nº RDO | K D.P. Origem | L Prontuario | M Status (STATUS_CP) | N Data Cumprimento | O Processo CNJ.
+CORRESP. (15 col., dados linha 4): A Nº | B Data Entrada | C Processo | D Vara | E Origem | F Juiz/Promotor | G Assunto | H Parte | I IPe | J Servidor Resp. | K Data Resposta | L Status (STATUS_CORRESP) | M Observacao | N Nº Oficio Saida | O Modal de Envio.
+
+== ABAS DE CUSTODIA — LAYOUTS COMPLETOS (cabecalho na linha 5, dados na linha 6; CONFERIDOS NO ARQUIVO REAL em 07/07/2026) ==
+Bloco inicial comum a todas: A Nº | B Descricao/Tipo | C Quantidade | D IP/BO Vinculado | E Nº RDO (= nº do BO) | F Data Apreensao | G Lacre nº | H Autor/Vitima. A direita de cada aba ha um bloco-espelho por FORMULA (Nº BO, Ano, Data, Crime, Vitimas, Autores) — NUNCA preencher: ARM. CUST. espelho R-W; DROGAS Q-V; ARMAS B. P-U; CEL. Q-V; DINH. P-U; DEMAIS OBJ. P-U; VEIC. S-X.
+ARM. CUST. (ate P): I Marca/Modelo | J Calibre | K Nº Serie | L Guia Pericia | M Destino/Entrega | N Data Entrega | O Status | P Observacao.
+DROGAS CUST. (ate O): I Tipo Substancia | J Peso/Quantidade | K Guia Pericia | L Destino/Entrega | M Data Entrega | N Status | O Observacao. (Motivo TRAFICO/PORTE/OUTROS registra-se na Descricao/Observacao.)
+ARMAS B. (ate N): I Tipo (Faca/Canivete/Outro) | J Material/Tamanho | K Destino/Entrega | L Data Entrega | M Status | N Observacao.
+CEL. (ate O): I Marca/Modelo | J IMEI | K Nº Linha | L Destino/Entrega | M Data Entrega | N Status | O Observacao.
+DINH. (ate O): I Moeda | J Valor (R$) | K Destino/Entrega | L Data Entrega | M Status | N Observacao | O Guia de Deposito nº.
+DEMAIS OBJ. (ate N): I Categoria | J Especificacao | K Destino/Entrega | L Data Entrega | M Status | N Observacao.
+SIMUL. (ate N, sem espelho): I Tipo (Replica/Airsoft) | J Marca/Modelo | K Destino/Entrega | L Data Entrega | M Status | N Observacao.
+VEIC. (layout proprio, ate Q): A Nº | B Marca/Modelo | C Placa | D Ano | E Cor | F Data Apreensao | G Nº BO/RDO | H Natureza (Art.) | I Autor | J Vitima | K Data Encaminhamento Patio | L Guia Patio | M IPe | N Processo CNJ | O Status | P Data Entrega | Q Observacao.
+PROTOC. OBJ. (cabecalho linha 5, ate U): A Nº | B Nº Protocolo (NNN/AA) | C Data Registro | D Nº BO | E Ano | F IP/Proc. | G Processo CNJ | H Natureza/Crime | I Categoria | J Descricao do Objeto | K Qtd. | L Nº Lacre Atual | M Requisicao Pericia | N Tipo de Pericia | O Instituto/Destino | P Nº Laudo | Q LOCALIZACAO ATUAL | R Status | S Data Ult. Mov. | T Responsavel Atual | U Observacao.
+MOVIM. OBJ. (cabecalho linha 5, ate O): A Nº | B Nº Protocolo | C Data Mov. | D Tipo Movimento (SAIDA; ENTRADA/RETORNO; TRANSFERENCIA; RESTITUICAO; DESTRUICAO) | E De (origem) | F Para (destino) | G Finalidade | H Nº BO | I Ano | J Requisicao/Guia | K Nº Laudo | L Nº Lacre | M Responsavel/Portador | N Recebedor | O Observacao.
+PERICIAS (cabecalho linha 5, dados linha 6; chave B+C+E): A Nº | B Nº do BO | C Ano | D IP/Procedimento | E Tipo de Pericia | F Objeto/Pessoa periciada | G Nº Documento (Requisicao) | H Data Requisicao | I Status (Pendente envio/Enviada/Laudo recebido) | J Data Envio | K Nº Laudo | L Observacao.
+PRONT. (cabecalho linha 3, dados linha 4): A Prontuario nº | B IP/Procedimento | C Ano | D Observacao | E Data Cadastro | F Localizacao Fisica | G Status | H Ultimo Servidor a Manusear.
+REDISTR. IP (cabecalho linha 3, dados linha 4): A Nº | B IP nº/Ano | C IPe | D Escrivao Anterior | E Escrivao Novo | F Data Redistribuicao | G Motivo | H Autorizacao (Delegado) | I Processo CNJ | J Observacao.
+
+== ABA LISTAS — DOMINIOS DE VALIDACAO (usar exatamente estes valores) ==
+ESCRIVAES: Milton, Bianca, Jose Carlos, Erika, Wilson, Joao Pedro, Cassio, Vinicius.
+STATUS_IP: Andamento, Relatado, Arquivado, Redistribuido, Devolvido.
+STATUS_TC: Andamento, Cumprido, Aguardando Audiencia, Encaminhado JECrim.
+STATUS_AI: Andamento, Concluido, Encaminhado VIJ, Aguardando Oitiva.
+STATUS_MP: Vigente, Cumprida, Revogada, Descumprida, Suspensa.
+STATUS_COTA: Pendente, Em Diligencia, Cumprida, Devolvida ao MP, Aguardando Pericia.
+STATUS_CP: Pendente, Em Diligencia, Cumprida, Devolvida, Negativa.
+STATUS_CUSTODIA: Em Custodia, Entregue, Destruido, Periciado, Encaminhado Judicial, Restituido, Depositado.
+STATUS_CORRESP: Pendente, Em Analise, Respondido, Arquivado.
+TIPO_INSTAURACAO: Portaria, Requisitado, Flagrante, Auto de Prisao.
+TIPO_COTA: IP, TC, AI, CP, PIC.
+SIM_NAO: Sim, Nao. PRIORIDADE: Alta, Media, Baixa, Urgente.
+Regras universais: dado ausente = N/C; nome de escrivao por extenso (Joao Pedro, Jose Carlos); valor fora do dominio quebra as contagens automaticas.
+
+== AGENDA DO ESCRIVAO-CHEFE (arquivo separado, 5 abas) ==
+SEMANA (ritmo fixo): SEGUNDA analise pesada de BOs acumulados; TERCA remessa drogas/armas/objetos a pericia; QUARTA despachos + correspondencias + reuniao; QUINTA remessa pericia; SEXTA cobranca de pendentes + cota cumprida + estatistica + backup.
+BACKLOG (13 col., linha 5): A Nº | B Data Entrada | C Categoria (BO; Despacho; E-mail; Cota MP; Carta Precatoria; MPU; Custodia; Diligencia; Estatistica; Oficio; IP/Relatorio; Admin Interno) | D Descricao | E Vinculado BO/IP/Cota | F Prazo | G Dias p/ vencer (formula) | H Status (A Fazer; Em Andamento; Aguardando; Concluido; Cancelado) | I Aguardando Quem | J Proxima Acao | K Concluido em | L Tempo min | M Observacoes.
+AGUARDANDO (9 col.): B Descricao | C Vinculado | D Aguardando Quem (Dr. Paulo Sergio; Dr. Leonardo; Policia Cientifica IC; IML; Outra DP; MPSP; Vara/Juizo; Investigador; Vitima/Testemunha; Advogado; Perito; Outros) | E Solicitado em | F Dias parado | G Cobrar em | H Status (Em Espera; Cobrado; Resolvido; Cancelado) | I Observacoes. Conferencia toda sexta; item parado ha mais de 7 dias e critico.
+
+== PLANILHA_360_ESCRIVAES.xlsx (base compartilhada da equipe — alimenta a Ficha 360) ==
+Arquivo compartilhado (OneDrive/SharePoint) preenchido por CADA escrivao via agente "Ficha do Escrivao 360". Aba DADOS: cabecalho na linha 1, dados a partir da linha 2; uma linha por procedimento; chave = Escrivao (A) + Tipo (B) + Nº Procedimento (C) + Ano (D). Colunas: A Escrivao | B Tipo (IP/IPS/TC/AI/CP/MPU) | C Nº Procedimento | D Ano | E Controle Interno | F IPe | G Processo CNJ | H Natureza/Art. | I Vitima | J Investigado/Autor | K Suporte (Eletronico/Fisico) | L Local (Em Cartorio/No Forum) | M Situacao (CARTORIO/PRAZO/COTA — cota = tem Relatorio Final) | N Status | O Reu Preso? (Sim/Nao) | P Ult. Movimentacao | Q Prazo/Vencimento | R Prescricao (ano-limite) | S Diligencias Pendentes | T Aguardando (quem/o que) | U BO Vinculado | V Data Preenchimento | W Observacoes (prefixo "🔴 PRIORITARIO — motivo" quando preso/prazo/prescricao/vulneravel). Validacoes na aba LISTAS do proprio arquivo. Atualizacao substitui a linha existente (nao duplicar). Consolidacao periodica: o Escrivao-Chefe leva o arquivo ao sistema central (Cowork), que cruza com a mestra e gera a Ficha 360.
+
+== ONDE LANCAR — REGRAS DE LOCALIZACAO (padrao do pacote de lancamento) ==
+Localizacao SEMPRE por chave, nunca por numero de linha: aba BOs -> Nº BO (col. B) + Ano (col. C); aba IPs -> IP nº (col. C) + Ano (col. D); abas de custodia -> D (IP/BO Vinculado) / E (Nº RDO = nº do BO) e/ou G (Lacre nº); PERICIAS -> Nº BO (B) + Ano (C) + Tipo (E); COTAS -> Nº Procedimento (col. C); CPs -> CP nº (col. B); MPUs -> Controle (col. B); CORRESP. -> Processo (col. C) + Data Entrada; PROTOC. OBJ. -> Nº Protocolo (B) ou Nº BO (D) + Lacre (L).
+Linha nova = primeira linha VAZIA apos a ultima preenchida (inicio dos dados: BOs linha 5; IPs/TCs/AIs/MPUs/COTAS/CPs, custodias, PERICIAS, PROTOC. OBJ. e MOVIM. OBJ. linha 6; CORRESP. linha 4; PRONT. e REDISTR. IP linha 4; BACKLOG e AGUARDANDO da AGENDA linha 6 — cabecalho na linha 5).
+Colunas que NUNCA se preenchem: col. A das abas BOs e de custodia (formula automatica); col. A da aba IPs (controle/curadoria); col. U da aba BOs (Analise Aprofundada — curadoria manual do Escrivao-Chefe); col. G do BACKLOG da AGENDA (formula Dias p/ vencer); zonas de pendentes (raio) das abas de custodia (formulas automaticas — o BO sai delas sozinho ao ser cadastrado na zona principal).
+Registro existente: preencher somente os campos vazios (ENRIQUECE) ou corrigir apontando DE -> PARA (CORRIGE); registro inexistente = NOVA. Status, escrivao e tipo: somente valores da aba LISTAS.
+Linha pronta para colar: valores na ordem exata das colunas, separados por ponto e virgula (;) — DENTRO dos valores, substituir ";" por "," (o ";" e exclusivo do delimitador) —, comecando na primeira coluna editavel (BOs: colar na celula B; IPs: na celula B; BACKLOG: segmentos B-F e H-J por causa da formula em G). No Excel: colar e usar Dados > Texto para Colunas com delimitador ponto e virgula.
+
+== FICHA DE MEMORIA PERMANENTE (formato padrao — arquivo .txt de consulta) ==
+Gerada AO FINAL de toda analise de BO, e-mail (EXCETO T08/T09 — sigilo: nunca gerar ficha) e inquerito, entre as marcas ###FICHA_INICIO### e ###FICHA_FIM###, autossuficiente, para o usuario salvar como MEM_BO_[num-ano].txt / MEM_IP_[num-ano].txt / MEM_EMAIL_[aaaa-mm-dd]_[assunto-curto].txt (pasta sugerida: MEMORIA_CARTORIO no OneDrive). Campos, NESTA ORDEM:
+TIPO E CHAVES: tipo (BO/IP/EMAIL) | Nº BO + Ano | Nº RDO | IP + Ano | Controle interno | Processo CNJ | IPe | data do fato | data da ficha.
+RESUMO: 5 a 10 linhas (o que, quem, onde, quando, estado atual, proxima acao).
+ENVOLVIDOS (um por linha): papel (autor/vitima/testemunha/condutor) | nome | vulgo | CPF redigido | nascimento | endereco resumido | telefone/PIX/placa citados.
+LINHA MESTRA: a LINHA PRONTA da aba correspondente (BOs B–T; IPs B–Y; COTAS/CPs/MPUs conforme o caso), valores separados por ";".
+CUSTODIA (se houver, uma por linha): objeto | lacre | aba de destino | status.
+AGENDA (se houver, uma por linha): tarefa | prazo | fundamento.
+ESTATISTICA: mes de competencia (mes da 1ª edicao) | esclarecido S/N (autoria identificada) | presos/apreendidos (tipo: flagrante/mandado; adolescente = APREENDIDO) | arma ilicita S/N | droga: substancia + peso que volta | veiculo: Localizado-Entregue/Localizado-Apreendido | tipologia (se e-mail: T01-T12).
+SPVIDA (somente mortes): tipificacao em tese (homicidio/suicidio/acidente/natural/suspeita) | circunscricao do fato | necroscopico S/N | IC de local S/N | contexto VD/feminicidio (art. 121-A CP) S/N.
+TAGS DE BUSCA (linha unica, separadas por ";"): natureza; artigos; bairro/local; modus; objetos; conexoes com outros BO/IP.
+REGRAS: somente dados do material analisado (N/C onde faltar); CPF/RG sempre redigidos; nada de conteudo de T08/T09.
+CONSULTA (memoria de busca): anexar as fichas MEM_*.txt a qualquer agente — em especial ao 00 HUB — e pedir o cruzamento por chave ou tag; toda resposta de consulta deve CITAR o nome do arquivo-ficha de onde tirou cada dado.

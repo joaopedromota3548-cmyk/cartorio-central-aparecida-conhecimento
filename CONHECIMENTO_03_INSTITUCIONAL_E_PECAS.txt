@@ -1,0 +1,38 @@
+BASE DE CONHECIMENTO 03 — DADOS INSTITUCIONAIS, PECAS E ROTINAS (DM APARECIDA/SP)
+(Dados de referencia — Cartorio Central, 07/07/2026.)
+
+== IDENTIFICACAO INSTITUCIONAL ==
+Unidade: Delegacia de Policia do Municipio de Aparecida/SP — Codigo 1512. Subordinacao: DEINTER 1 (Sao Jose dos Campos) -> Delegacia Seccional de Policia de Guaratingueta -> DEL.POL.APARECIDA.
+Endereco: Praca Pe. Vitor Coelho de Almeida, 500 — Jd. Sao Paulo — Aparecida/SP — CEP 12570-000. Telefone institucional: (12) 3105-1650 (fonte alternativa registra 3105-2333). E-mail: dp.aparecida@policiacivil.sp.gov.br.
+Delegado Titular: Dr. Paulo Sergio Barbosa. Delegado Substituto: Dr. Leonardo da Costa Ferreira. Escrivao-Chefe: Joao Pedro de Alcantara Mota, Escrivao de Policia de 3ª Classe (nao conta na producao — coordenacao). Escrivaes ativos: Milton, Bianca, Jose Carlos, Erika, Wilson, Cassio, Vinicius. Setor de investigacoes: SIG (Setor de Investigacoes Gerais).
+Circunscricao: Aparecida lavra BOs tambem para Roseira e Potim; a custodia segue ONDE ELA FICA — BO de circunscricao Roseira/Potim = procedimento de fora (remessa), salvo droga/objeto remetido a Aparecida (custodia nossa).
+
+== CABECALHO INSTITUCIONAL DOS DOCUMENTOS (5 linhas, com brasao) ==
+Secretaria de Seguranca Publica / POLICIA CIVIL DO ESTADO DE SAO PAULO (negrito) / DEPARTAMENTO DE POLICIA JUDICIARIA DO INTERIOR – DEINTER 1 / DELEGACIA SECCIONAL DE POLICIA DE GUARATINGUETA / DELEGACIA DE POLICIA DO MUNICIPIO DE APARECIDA. Rodape: endereco + telefone + e-mail + paginacao. Separadores com travessao (–), nao hifen. Corpo padrao: fonte serifada 13pt, titulo 15pt negrito sublinhado centralizado, justificado, recuo de primeira linha 2 cm, espacamento 1,5.
+
+== AUTORIDADE ASSINANTE POR PECA ==
+Oficio, Pedido de Dilacao de Prazo, Cota Cumprida: Dr. Paulo Sergio Barbosa (Titular). Ordem de Servico e Intimacao (de ordem): Dr. Leonardo da Costa Ferreira. Requisicao ao IC: Delegado de plantao. Requisicao ao IML: o declarante. Certidao: Joao Pedro (Escrivao). Autos (Avaliacao/Reconhecimento): Delegado + peritos/testemunhas + Escrivao. Portaria de instauracao: Dr. Leonardo da Costa Ferreira.
+Vocativos: Excelentissimo (Juiz, Promotor); Ilustrissimo (Delegado, Perito, Diretor); Senhor(a) (civis).
+
+== CATALOGO DOS 13 MODELOS DE PECAS (00-12) ==
+00 Modelo Padrao Universal (base para peca sem modelo proprio). 01 Pedido de Dilacao de Prazo (titulo + DESPACHO; art. 10, par. 3º, CPP; texto generico; Cumpra-se; Titular). 02 Oficio (Oficio nº N/2026 – Delpol Aparecida; assunto e vocativo obrigatorios; Atenciosamente; Titular + bloco destinatario). 03 Ordem de Servico (natureza da investigacao; Sr. Policial Civil, proceda...; Leonardo). 04 Intimacao (art. 330 CP; linha de ciencia RECEBI ESTA INTIMACAO EM __/__/__ CIENTE; nao damos informacoes por telefone; de ordem de Leonardo, assina Escrivao). 05 Auto de Avaliacao Indireta (Aos [dia] dias do mes de...; Delegado + 2 peritos + Escrivao). 06 Requisicao IC (ao Diretor do Instituto de Criminalistica; BO, naturezas, local, objetos; laudo enviado a DEL.POL.APARECIDA; Delegado de plantao). 07 Requisicao IML-Pessoa (ao Diretor do IML; dados da pessoa; clausula de autorizacao de prontuario medico; assina o Declarante). 08 Certidao (Eu, Joao Pedro..., CERTIFICO que...; O referido e verdade e dou fe.). 09 Cota Cumprida (MM. Juiz; referencia a cota; retornem os autos ao MP; Respeitosamente; Titular). 10 Carta Precatoria (FAZ SABER... DEPRECA a Vossa Excelencia; ASSIM O DEPRECA / REGISTRA-SE e CUMPRA-SE / PRAZO: N dias). 11 Auto de Reconhecimento de Pessoa (art. 226 CPP; HC 598.886/SC; Delegado + 2 testemunhas + reconhecedor + Escrivao). 12 Auto de Reconhecimento de Objeto (estrutura do 11, objeto entre semelhantes).
+Placeholder de dado ausente em minuta: [COLCHETES].
+
+== TEXTO DE PROTOCOLO DE REMESSA DE OBJETO (mascara exata) ==
+Enc. Req. BO [Nº SPJ] – [CRIME, ART./LEI]; autor: [NOME]; acompanha [OBJETO/DROGA] – LACRE [Nº].
+Objeto/droga em caixa alta, so o tipo; um lacre por objeto; multiplos objetos ligados por E; autoria ignorada = autor: A Esclarecer; objeto de terceiro = relacionado a [NOME]; ausente = N/C / LACRE N/C.
+
+== ESTATISTICA MENSAL (referencia) ==
+Fechamento dias 1-10 do mes seguinte; envio a CCDCRIM apos assinatura do Delegado Titular vigente (conferir o vigente a cada mes). Fluxo: Seccional Guaratingueta -> DEINTER 1 -> CCDCRIM. Sao 6 planilhas alimentadas pela unidade (1 Producao Cartoraria; 2 Nova Acervo IPs; 3 Cotas TC-AI; 4 Esclarecimentos; 5 Inventario de Entorpecentes; 7 Controle de Armas — nao existe planilha 6) + 3 de cruzamento do SPJ (IPs instaurados/relatados/flagrantes). Aba da unidade: DM APARECIDA / APARECIDA / DPM APARECIDA conforme a planilha. Joao Pedro nao aparece como linha de producao. Esclarecimento = BO com autoria identificada (diferente de A Esclarecer). Inventario de entorpecentes: peso sob custodia por substancia (maconha/cocaina/crack/outros), incineracoes solicitadas/autorizadas, peso liquido conforme laudo.
+
+== CORREICAO (estrutura de referencia) ==
+Quatro quadrantes por escrivao contavel (Bianca, Jose Carlos, Milton): Suporte (Eletronico x Fisico) x Local (Em Cartorio x No Forum); tipos IP, TC, AI (CP a parte). Situacao: Em Cartorio -> CARTORIO/COTA; No Forum -> PRAZO/COTA (cota = tem Relatorio Final nas pecas). Cabecalho de cada aba: UNIDADE POLICIAL, ESCRIVAO, DELEGADO. Colunas IP eletronico: Nº IP(e); Nº IP CONTROLE; ANO IP; NATUREZA; VITIMA; AVERIGUADO/INDICIADO; CARTORIO/COTA (ou PRAZO/COTA). TC usa AUTOR; AI usa ADOLESCENTE INFRATOR. Pedido de prazo por inatividade: ultima movimentacao acima de 30 dias, em andamento, sem reu preso e sem relatorio -> pedir dilacao (art. 10, par. 3º, CPP).
+
+== FLUXO DE TRABALHO COM OS AGENTES (referencia) ==
+O agente produz o pacote mastigado (tabelas ABA | COLUNA | DADO); o Escrivao-Chefe confere contra o documento original (cobertura -> completude -> consistencia -> fonte lida por inteiro) e somente ele lanca nas planilhas de controle. Toda peca gerada e minuta: conferencia humana obrigatoria antes de assinatura/juntada (art. 2º, par. 6º, Lei 12.830/13).
+
+== COMPLEMENTO (09/07/2026) — CORREICAO: COLUNAS DOS FORMULARIOS E ROTEIRO ==
+Colunas por tipo (ordem dos formularios oficiais): IP ELETRONICO — Nº IPe | Nº IP Controle | Ano | Natureza | Vitima | Averiguado/Indiciado | CARTORIO/COTA (ou PRAZO/COTA) | [FORMULA - automatica, nao preencher]. IP FISICO — igual, SEM Nº Controle/Ano. TC (eletronico/fisico) — "Autor" no lugar de Averiguado/Indiciado. AI — "Adolescente Infrator". CP — CP nº (unidade) | CP nº (origem) | Data Entrada | Unidade de Origem | Referencia (IP/TC/AI/BO) | [FORMULA].
+Cabecalho obrigatorio de cada quadro: UNIDADE POLICIAL · ESCRIVAO · DELEGADO. Escrivaes contaveis: Bianca, Jose Carlos, Milton (Joao Pedro e Chefe — nao conta).
+ROTEIRO DA UNIDADE (alem dos quadros por escrivao): abas administrativas DADOS GERAIS, EQUIP. INFORMATICA, BENS E UTENSILIOS, ESTOQUE, PROTOCOLADOS, VEICULOS APREENDIDOS (esta cruza com a aba VEIC. da mestra).
+Situacao: Em Cartorio -> CARTORIO ou COTA; No Forum -> PRAZO ou COTA. Criterio-mestre: ha Relatorio Final nas pecas = COTA (o documento manda, nao o status de tela). Natureza pelas CAPITULACOES da capa.

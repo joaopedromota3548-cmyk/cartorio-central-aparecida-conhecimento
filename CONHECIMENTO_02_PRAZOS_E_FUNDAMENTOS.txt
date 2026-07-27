@@ -1,0 +1,44 @@
+BASE DE CONHECIMENTO 02 — PRAZOS, FUNDAMENTOS LEGAIS E CRITERIOS DE TRIAGEM
+(Dados de referencia da polícia judiciaria paulista — Cartorio Central DM Aparecida/SP, 07/07/2026.)
+
+== TABELA DE PRAZOS ==
+APFD: comunicacoes ao Juiz, MP e Defensoria + nota de culpa ao preso em 24 horas (art. 306 CPP). Audiencia de custodia na sequencia. Fianca: arts. 322 e 323 CPP.
+IP com investigado PRESO: 10 dias improrrogaveis, CONTADOS DA DATA DA PRISAO (art. 10 CPP).
+IP com investigado SOLTO: 30 dias, prorrogaveis (art. 10, par. 3º, CPP — pedido de dilacao).
+IPS (investigacao preliminar sumaria): 60 + 30 dias (Portaria DGP-26/2023).
+Violencia domestica com pedido de MPU: remessa ao Judiciario em 48 horas (art. 12, III, Lei 11.340/06); decisao judicial esperada em 24-48h (art. 19).
+Acao penal condicionada/privada: decadencia em 6 meses do conhecimento da autoria (art. 38 CPP; art. 103 CP).
+Cota ministerial / determinacao judicial: prazo fixado no despacho.
+Prescricao: pela pena maxima em abstrato (art. 109 CP); termo inicial art. 111 CP; causas suspensivas/interruptivas arts. 116-117 CP; reduzida de metade se agente menor de 21 na data do fato ou maior de 70 na sentenca (art. 115 CP). Alerta critico: prescricao a menos de 12 meses.
+
+== ARVORE DE DESTINO DO BO (referencia) ==
+Sem tipicidade -> arquivar. Pena maxima ate 2 anos (IMPO, art. 61 da Lei 9.099/95): autor conhecido e presente -> TCO; autor ausente/desconhecido -> NECRIM/IPS; violencia domestica -> IPL (Sumula 536 STJ exclui JECRIM). Pena maxima acima de 2 anos: com justa causa -> IPL por portaria; sem justa causa -> IPS; flagrante -> APFD (prioridade absoluta). Especiais: adolescente autor -> ato infracional (ECA), nunca IP; crime militar -> Justica Militar; crime federal -> PF; prerrogativa de funcao -> juizo competente; circunscricao diversa -> remessa.
+
+== CRITERIOS JURISPRUDENCIAIS E LEGAIS FREQUENTES ==
+Sumula 536 STJ: suspensao condicional do processo e transacao penal nao se aplicam a violencia domestica — nao cabe TCO/JECRIM mesmo com pena ate 2 anos.
+Violencia domestica nao e tipo penal autonomo; unico tipo proprio: descumprimento de medida protetiva (art. 24-A, Lei 11.340/06). Vincular sempre ao crime material: ex. lesao corporal art. 129, par. 9º, CP, c/c Lei 11.340/06; ameaca art. 147 CP c/c Lei 11.340/06.
+Estelionato (art. 171 CP): apos a Lei 13.964/19, acao penal publica condicionada a representacao (par. 5º), salvo excecoes legais.
+Porte para consumo (art. 28, Lei 11.343/06): nao cabe prisao em flagrante/APFD (art. 48, pars. 2º-3º da Lei); TCO ou procedimento especifico.
+Insignificancia (STF, criterios cumulativos): minima ofensividade; ausencia de periculosidade social; reduzido grau de reprovabilidade; inexpressividade da lesao juridica. Jurisprudencia majoritaria nega ao reincidente habitual.
+Crimes contra a honra: em regra acao penal privada (queixa) — orientar a vitima; excecoes: contra funcionario publico em razao da funcao (representacao) e injuria racial (Lei 7.716/89, publica incondicionada).
+Reconhecimento de pessoas: procedimento do art. 226 CPP e HC 598.886/SC do STJ.
+Vulneraveis: crianca/adolescente — ECA (Lei 8.069/90) e escuta especializada/depoimento especial (Lei 13.431/17); idoso 60+ — Lei 10.741/03; mulher em VD — Lei 11.340/06; pessoa com deficiencia — Lei 13.146/15.
+Cadeia de custodia: arts. 158-A a 158-F do CPP — integridade (hash), preservacao (copia fiel), rastreabilidade (registro de cada movimentacao); um objeto = um lacre = um protocolo.
+Mortes suspeitas: Portaria DGP-14/2005 (analise de causa e circunscricao).
+Fundamentos gerais da funcao: art. 144 CF/88; Lei 12.830/13 (art. 2º: investigacao conduzida pelo Delegado; par. 6º: decisao final); Portaria DGP-26/2023 (Consolidacao das Normas de Servico da Policia Judiciaria de SP) e alteradoras (DGP-32/2023, 35/2023, 6/2024, 01/2025, 21/2025, 36/2025, 37/2025, 9/2026).
+
+== TIPOLOGIAS DE E-MAIL (T01-T12) ==
+T01 Cota Ministerial (MPSP/Vara) -> aba COTAS. T02 Requisicao Judicial (TJSP) -> CORRESP. T03 Carta Precatoria -> CPs. T04 Decisao MPU (urgente) -> MPUs. T05 Comunicacao de IP (outras DPs) -> IPs/CORRESP. T06 Laudo IC -> fila de custodia. T07 Laudo IML -> juntada no IP. T08 Denuncia/Noticia-crime -> SIGILO: fora da planilha, encaminhamento reservado ao setor de investigacoes (SIG), manter nao lido. T09 Localizacao/Captura -> fora da planilha ate cumprir, SIG, nao lido. T10 Seguradora -> CORRESP. T11 Administrativo -> sem planilha. T12 Outros -> caso a caso. Mandado de prisao, oficio de paradeiro, pedido de qualificacao/localizacao de pessoa, monitoramento de apuracao -> SIG, nao lido. DDM Online -> arquivar.
+
+== REGRAS DE LAUDO (negocio) ==
+Droga: substancia = resultado quimico (nao a aparencia; material petrificado que testa cocaina = COCAINA; THC = maconha). Massa bruta x liquida; contraprova retida. Peso que retorna a custodia = massa liquida do laudo menos contraprova, por item. Peso bruto do BO nao vale para controle. Laudo definitivo analisa ~2 g por item; a massa liquida real do acervo esta na constatacao provisoria.
+Arma: eficiencia (apta/inapta), calibre, numeracao integra x suprimida (suprimida = ilicita), SINARM/SIGMA. Arma ilicita para estatistica: numeracao suprimida, sem registro, ou possuidor sem CAC/posse/porte; arma institucional (PMESP/FA/GCM) ou de registro regular nao conta como ilicita.
+IML lesao (ECD): grau leve/grave/gravissima (art. 129, caput e pars. 1º-2º, CP), instrumento, nexo, incapacidade acima de 30 dias, perigo de vida.
+Veiculo: chassi/motor/placa original x adulterado (art. 311 CP). Estatistica de veiculo: Localizado/Entregue ou Localizado/Apreendido.
+Presos para estatistica: flagrante + mandado = duas contagens quando for o caso; adolescente = APREENDIDO (nunca preso); fianca nao descaracteriza a prisao.
+
+== COMPLEMENTO (09/07/2026) — PRAZOS ECA, ART. 24-A E CAUTELARES ==
+Adolescente apreendido em flagrante de ato infracional: apresentacao IMEDIATA ao MP (art. 175 ECA; impossibilidade = 24h); comunicacao imediata a familia e a autoridade judiciaria (art. 107 ECA); internacao provisoria: maximo 45 dias (art. 108 ECA); nunca usar os prazos do art. 306 CPP.
+Descumprimento de MPU (art. 24-A, Lei 11.340/06): sempre prioridade maxima (🔴) — novo fato tipico autonomo; avaliar prisao preventiva (art. 313, III, CPP) e comunicar o Juizo da MPU.
+Cautelares — CONTEMPORANEIDADE: a preventiva exige perigo ATUAL (fatos antigos sem fato novo enfraquecem o pedido — art. 312, par. 2º, CPP); medidas diversas do art. 319 CPP (comparecimento periodico, proibicao de contato/aproximacao, recolhimento noturno, monitoracao eletronica, suspensao de funcao, fianca) sao o caminho quando falta requisito da preventiva.
+Feminicidio: art. 121-A CP (tipo autonomo desde a Lei 14.994/24) — atencao na tipificacao de mortes de mulheres em contexto de VD/menosprezo a condicao de mulher.

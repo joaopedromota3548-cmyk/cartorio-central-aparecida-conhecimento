@@ -1,0 +1,229 @@
+BASE DE CONHECIMENTO 06 — ENTRAVES DE SISTEMAS E PROCEDIMENTOS APRENDIDOS (memoria viva ate 07/07/2026)
+Registro acumulado de entraves (sintoma-causa-contorno) dos sistemas SPJ, IPe, SPTC/Segunda Via, Outlook, e-SAJ e planilhas, e procedimentos operacionais validados.
+
+========== aprendizado-continuo/entraves-sistemas ==========
+# Entraves dos Sistemas — registro vivo (APRENDIZADO CONTÍNUO)
+
+> Memória viva dos comportamentos não óbvios / armadilhas dos sistemas usados no Cartório de Aparecida.
+> **Consultar antes/durante** o trabalho nesses sistemas. **Registrar todo novo entrave** ao descobri-lo, com data.
+> Não apagar itens antigos; se o sistema corrigir um, marcar `[resolvido em DD/MM]`.
+
+| Data | Sistema | Entrave | Sintoma | Contorno |
+|---|---|---|---|---|
+| 01/06/2026 | SPJ | **Telas-resumo mentem.** As abas Naturezas / Entorpecentes / Objetos do "Detalhar BO" podem estar erradas ou incompletas | Ex.: HN0449 — aba Naturezas dizia "ilícito extrapenal (tema 506)/porte"; o **Auto de Apreensão** dizia **tráfico Art. 33 + ATO INFRACIONAL (menor)** | **Sempre ler o Auto de Exibição e Apreensão** (Ações → Documentos) e os Anexos. Nunca classificar pela tela-resumo |
+| 01/06/2026 | SPJ | **Visualizador de PDF embutido não rola** por roda do mouse nem por teclado (PageDown/setas) | A página externa rola, o PDF não; conteúdo fica preso na 1ª parte | Usar o botão **−/zoom-out** do visualizador para caber mais texto; navegar por página (campo "1/2"); ou **baixar o documento** e ler no sandbox. Cuidado: vários cliques de zoom seguidos travam o renderizador (esperar e re-tirar screenshot) |
+| 01/06/2026 | SPJ | **Laudo de constatação/definitivo nem sempre está anexado** ao BO | Em Documentos só há "REQUISIÇÃO DE IC" (o pedido); em Anexos, só fotos | Caçar laudo em **4 lugares**: Segunda Via de Laudos + SPJ Documentos + SPJ Anexos (usar a busca por palavra "laudo") + dentro do IP. Se não houver em nenhum, o laudo não existe ainda |
+| 01/06/2026 | Segunda Via de Laudos (SPTC) | **Sessão expira muito rápido** | Uma consulta "fica carregando" (spinner) por 30s+ — **parece lentidão da busca, mas é a sessão caindo**. Recarregar a página volta para o login | Refazer login. Buscas em sessão válida voltam **em segundos** (com ou sem resultado). Não confundir spinner longo com "encontrou muita coisa" |
+| 01/06/2026 | Segunda Via de Laudos | **Status "Laudo em Elaboração"** = número de laudo já atribuído, mas perícia **não concluída** | Aparece o nº/ano do laudo e a natureza, mas o botão de Ação é o selo "Laudo em Elaboração" (sem visualizar/baixar) | Registrar o **nº do laudo**, mas **peso líquido e lacre do laudo NÃO existem ainda** — deixar pendentes. Ex.: FA5177 → laudo 132318/2026 (Maconha), em elaboração em 01/06 |
+| 01/06/2026 | Segunda Via de Laudos | **Laudo definitivo de droga demora semanas a meses** | Apreensões recentes voltam "Não foram encontrados resultados" | Não estranhar: para o mês corrente é normal não haver laudo. Reconsultar perto do fechamento. Referência: FA5177 (01/04) ainda "em elaboração" 2 meses depois |
+| 01/06/2026 | Segunda Via de Laudos | Busca por **Tipo de Origem** — o BO fica em **"BO / RDO / TC"** (não existe opção "BO" isolada) | Selecionar "BO" falha | Selecionar exatamente **"BO / RDO / TC"**; nº do BO alfanumérico + ano; órgão em branco; base **IC** (trocar p/ **IML** se for exame do IML) |
+| 01/06/2026 | Extração SPJ (drogas/armas) | A extração lista por **região do fato**, não por quem registrou/custodia | BO de outra unidade aparece como "Aparecida" (ex.: HN0449, lavrado no plantão de Guaratinguetá) | Cruzar com a mestra: confirmar quem **registrou** e onde está a **custódia** antes de contar como nosso. Droga remetida a Aparecida → é nossa para inventário, mesmo sendo "BO de fora" |
+| 01/06/2026 | Mestra (CARTORIO_CENTRAL) | **Layout muda** (v2.1 removeu Nº Controle e Escrivão Resp. da aba BOs → bandeiras de custódia migraram p/ K–Q) | Scripts/refs antigos apontam coluna errada | Conferir o cabeçalho real (linha 4 da aba BOs) antes de gravar; o `mapa-abas.md` desta skill pode estar atrás do arquivo real — o **arquivo manda** |
+| 01/06/2026 | Mestra / abas com fórmula | Coluna A (Nº) e resumos usam fórmula (`=IF(B<>"",ROW()-n,"")`, `COUNTA`) | Sobrescrever a fórmula de A quebra a numeração; deixar B vazio tira a linha da contagem | Não sobrescrever fórmula de A; preencher a chave (B) para a linha contar. Em IPs eletrônicos sem nº físico, usar o IPe como identificador em B |
+| 02/06/2026 | SPJ "inquérito antigo" (`inquerito.policiacivil.sp.gov.br/inquerito/`) | **Só indexa IPs Portaria/Requisição — flagrantes NÃO aparecem** | Buscar o nº de um IP de flagrante (ex.: 2526854, que é nosso e está na mestra) retorna **"Nenhum registro encontrado"**, mesmo sendo de Aparecida | Não concluir "não é nosso" por dar vazio aqui. Flagrante se confere no **IPe do SPJ**: `https://inquerito.ipe-policiacivil.sp.gov.br/procedimentos/meus-procedimentos/inqueritos-policiais/listar`. Site antigo = só Portaria/Req |
+| 02/06/2026 | SPJ "inquérito antigo" — Buscar Procedimento | Pop-up **"Em processamento / Aguarde"** engole a próxima consulta em lote | Em batch rápido, a busca seguinte não registra (campo fica com o nº anterior); o resultado de uma linha "pula" para outra | Usar **espera de 3s+** após cada Buscar e **conferir o campo "Nº Inicial" no screenshot** = ao nº pretendido antes de ler o resultado. Refazer as que pularam |
+| 02/06/2026 | Mestra (CARTORIO_CENTRAL) — abas IPs e COTAS | **Acervo de IPs/Cotas NÃO está populado na mestra** (p/ estatística mensal) | Aba `IPs` tem só ~5 registros (flagrantes recentes); aba `COTAS` vazia; PAINEL aponta mês anterior | Produção Cartorária: o automático da mestra é mínimo. Acervo "mês anterior" = carregar do **fechamento do mês anterior** (coluna "Passam p/ mês seguinte"); Instaurados/Relatados/Flagrantes vêm das **exportações do SPJ** |
+| 03/06/2026 | Estatística mensal — pastas | **As planilhas de conferência do fechamento ficam na pasta do MÊS SEGUINTE** | Estatística de MAIO preenchida está em `EST. JUNHO 2026/` (fechamento dias 1–10 de junho); na pasta `EST. MAIO 2026/` há só rascunhos/versões parciais (v2/v3) | Conferir o mês de referência **na pasta do mês seguinte**. Exceção: planilhas 5 (Entorpecentes) e 7 (Armas) podem ficar só na pasta do mês de referência com nome "(com maio)" — confirmar com o João |
+| 03/06/2026 | Mestra — abas TCs e AIs | **Também ZERADAS** (como IPs/COTAS) | Planilha 3 (Cotas/TC/AI) reporta TCs instaurados/cumpridos e atos infracionais, mas abas `TCs` e `AIs` da mestra têm 0 linhas | Planilha 3 é **N/C para recálculo da mestra**. AIs cruzar com SPJ/IPe; TC vive fora da mestra. Não confundir "cota cumprida" da Produção (cota de IP) com "cota de TC" da planilha 3 — universos distintos |
+| 03/06/2026 | Planilhas 5 (Drogas) e 7 (Armas) | **São inventários CUMULATIVOS históricos**, não fotografia do mês | Planilha 5 lista itens desde 2017; planilha 7 desde 1990. Somatórios não batem com a mestra (que só tem itens recentes) | **Não recalcular da mestra.** Gramagem depende de **laudo IC** (que demora meses; guia "Req. IC" = só o pedido) → peso pós-contraprova N/C. Conferir só: itens novos do mês, circunscrição e lícita×ilícita |
+| 03/06/2026 | Produção Cartorária — "Inq. Pols. mês anterior" | **Reconciliação inter-mensal:** mês anterior = (passam p/ mês seguinte **+ encaminhados p/ prazo**) do mês anterior | Maio: Bianca e Milton fecharam exato; Jose Carlos abriu 65 e abril só justificava 64 (+1) | Diferença de 1 ⇒ conferir o **acervo REAL** do escrivão. Pode ser **subnotificação do mês anterior** (caso maio/26: JC abriu 65 reais; abril fechou 64 — erro foi em abril, já enviada). O mês corrente estar certo NÃO implica erro nele; o acervo verdadeiro manda |
+| 03/06/2026 | Produção Cartorária (planilha 1) — coluna "Flagrantes Elaborados" | **Mede flagrantes RELATADOS, não lavrados** (regra confirmada pelo Escrivão Chefe) | Em maio: 4 flagrantes lavrados, mas só 1 relatado → coluna "Flagrantes" = 1. Parecia divergir do SPJ/Acervo IPs (que mostram 4) | **Não tratar como erro.** Os flagrantes **lavrados** entram em **Instaurados** (na Acervo IPs, col FLAG dentro de "IPs instaurados"); a coluna "Flagrantes" da Produção é o subconjunto **relatado**. Cruzar lavrados com SPJ; relatados é outra métrica. O flagrante relatado é **eletrônico** (entra nos relatados eletrônicos). A lista de Relatados do SPJ/Produção é **só de eletrônicos**; IPs **físicos antigos** relatados aparecem só na Acervo IPs (que separa físico×eletrônico) e **abatem o acervo físico** — se a Produção não abater o físico relatado, o "passam" dela fica +1 vs Acervo IPs (caso de maio/26: Produção 376 × Acervo IPs 375) |
+| 03/06/2026 | SPJ — planilhas 8/9/10 (Instaurados/Relatados/Flagrantes) | Identificar a unidade dona do IP | São consolidadas da Seccional (todas as unidades). Col C=DELEGACIA, col H="pertence a esta unidade? SIM/NÃO", col I=unidade correta quando NÃO | Contar como Aparecida: **col C contém "APAREC" E col H=SIM**. Linhas C=Aparecida com H=NÃO são flagrantes lavrados no plantão que pertencem a outra unidade (ex.: maio → GU6619/IG3739 Roseira, HD1279/HG4109 Potim) — **excluir** da Produção, mas a **droga/arma pode ficar na custódia** da Aparecida |
+
+| 10/06/2026 | IPe NOVO (`inquerito.ipe-policiacivil`) — aba "Em Cartório" | **A coluna "Cartório" = escrivão SÓ quando o IP já foi roteado**; e a listagem **NÃO tem coluna de data de instauração** (só "Última Atualização") | Procedimentos de meses diferentes se misturam (ex.: 2530015 atualizado 02/06 mas instaurado 19/05). "Cartório Central" e "Cartório CPPJ - Aparecida" = **ainda a distribuir** (não roteado a escrivão) | Para "instaurados em junho" **não usar esta aba como enumerador** — usar a exportação SPJ por data de instauração. A aba serve para **confirmar escrivão** (Cartorio Jose Carlos/Bianca Valezzi/Milton) dos já roteados e achar os a-distribuir. Mudar paginação 5→20 no dropdown do rodapé lê tudo de uma vez |
+| 10/06/2026 | Regra dos dois sistemas (reforço do João) | **Inquérito mora em DOIS lugares — consultar SEMPRE os dois** | Flagrantes no IPe novo; **Portaria/Requisição no IPe de portaria antigo** (`inquerito.policiacivil.sp.gov.br/inquerito/`). Ex.: IP 2182024/26 (VD/Portaria, 09/06) não aparece no IPe novo | Nunca dar por completa a lista de junho só com um sistema. Cruzar: flagrantes (IPe novo) + Portaria/Req (antigo) + exportação SPJ |
+| 10/06/2026 | SPJ API — **anexos** (`/cadastros/anexos/...`) | **Arquivo de anexo NÃO baixa** (laudo/foto/antecedentes) | `/cadastros/anexos/download/{id}` e `/cadastros/arquivos/{arqId}` → **500/504**; só `/cadastros/anexos/{id}` dá 200, mas é **metadado JSON** (sem base64) | Não insistir no download de anexo. Ler o conteúdo pelos **documentos** (campo `texto` — ver procedimento) e pelo **getPdf** do BO. Laudo/antecedentes → caçar na Segunda Via. Existência do anexo se registra; conteúdo não |
+| 10/06/2026 | SPJ / SSO (realm dipol) | **Sessão SSO cai no meio do trabalho** e vai à URL de **logout** (`/auth/realms/dipol/.../logout`) | `window.__cap`, `window.__BO`, pdf.js e demais vars de página **somem**; API passa a dar 401 | **Persistir o resumo de cada BO em arquivo ASSIM QUE pronto** (não acumular o lote só em memória). Recuperar: **navegar de volta** a `spj.../listagem-bos/relatorio` (realm dipol **reloga sozinho**), **reinstalar interceptor**, clicar **Página Inicial** (dispara chamada autenticada) → `__cap` volta; **reinjetar pdf.js**. Se não relogar, pedir "login ok" |
+| 10/06/2026 | `javascript_tool` (Chrome) — retorno | **Bloqueia retorno** com URL/hash/`?...=` ("Cookie/query string data") — atinge até **texto de documento** (tem `www.`, "Chave de Impressão" hash, CEP) | Saídas voltam vazias/`[BLOCKED]` | Antes de retornar texto de auto/termo: **remover dígitos/hashes** (`.replace(/[0-9a-fA-F]{16,}/g,'#')`, `.replace(/[0-9]/g,'#')`, tirar `www.`/`http`); guardar o bruto em `window.__...` e devolver só o trecho limpo |
+| 15/06/2026 | Segunda Via de Laudos (SPTC) — **base IC FORA DO AR** | A base **IC** retorna **"Falha na comunicação com o servidor"** / tela "Ocorreu um erro ao efetuar a busca" em TODAS as consultas (GQ8779, FS0348, IO7837, IO8193, HW5523 testados). A base **IML funciona normal** no mesmo login | Backend `api_ic` indisponível (≠ "sem resultado"). **Não marcar IC como "não emitido"** — marcar `IC_INDISPONIVEL` e reconsultar depois. Itens IC (drogas/constatação, veículo, chassi, local, incêndio, balística) ficam pendentes; só IML pode ser fechado nesta janela. Reportar ao João p/ retomar a frente IC quando o servidor voltar |
+| 15/06/2026 | Segunda Via — **endpoints de busca por origem (diferentes por base)** | IC e IML usam APIs distintas; quem só conhecia "BuscarPorOrigemPC" achava que IC estava quebrado | **IML:** `POST api_iml/BuscarPorOrigemPC`, corpo **urlencoded** `CodigoTipoOrigem=2,7&NumeroRequisicao=<BO>&AnoRequisicao=<ano>` (BO/TC=`2,7`; IP=`3`). **IC:** `POST api_ic/GetLaudosByOrigem`, corpo **JSON** `{Paginacao:{NumeroPagina:1,QtdPorPagina:N},CodigoTipoOrigem:"2",CodigoOrgao:"",NumeroRequisicao:"<BO>",AnoRequisicao:"<ano>",recebido:true}` (BO/RDO/TC=`2`). Resposta `{result:{Data,Success,Message}}`. **Trocar a base RESETA o Tipo de Origem** (set base → dispatch change no `cbInstituto` → só então setar `select[name=origens]`). Status do laudo no registro: campo **`Plem`** (false=concluído "Exibir Laudo"; true="Laudo em Elaboração") |
+| 18/06/2026 | IPe antigo — tela **"Novo Documento"** (criar Pedido de Prazo) | Depois de digitar no campo Documento e/ou clicar em campos do form, a **roda do mouse rola só o editor de texto interno, não a página** → o botão **Salvar** (rodapé) fica fora da tela e o clique "às cegas" em (x,708) cai no vazio (doc NÃO salva; "Número do Documento" fica em branco, sem toast) | Para revelar o Salvar de forma confiável: **clicar num elemento neutro** (ex.: a legenda "Novo Documento") e **pressionar a tecla `End`** → a página rola e mostra Visualizar/Salvar/Voltar. Só então clicar **Salvar**. Conferir o toast "Documento incluído com sucesso!" e o nº em "Número do Documento" antes de seguir |
+| 18/06/2026 | IPe antigo — modal **"Modelos de Documento"** em IP **com Carta Precatória** | Quando o IP tem CP vinculada, o dropdown **Associação** abre em **"Selecione"** (não defaulta p/ IP/<nº>). Marcar integrantes e clicar Utilizar dá erro **"Necessário informar uma associação para o documento."** | **Primeiro** abrir o dropdown Associação e escolher **IP/<nº>** (não CP/1); **só então** filtrar prazo / selecionar DESPACHO PRAZO / marcar Paulo+João / Utilizar. Atenção: **trocar a associação RECARREGA a tabela de Integrantes e desmarca tudo** — remarcar depois de escolher a associação |
+| 18/06/2026 | IPe antigo — método ANEXO (Pedido de Prazo) + automação | João ensinou caminho mais curto: IP ▸ **Anexos ▸ Incluir Novo Anexo ▸ "+ Documento"** (upload) ▸ **Tipo do Anexo = "Pedido de Prazo"** ▸ Salvar (limite **1,7 MB**; sem tabela de integrantes; campo **Associar Anexo** = IP a conferir). **Bloqueio p/ AGENTE:** o IPe é um **frameset** (frames `header`/`body`); o `<input type=file>` fica no frame `body`, que `read_page`/`find`/`file_upload` **não enxergam** (só veem o `<frameset>` = ref_1). Clicar "+ Documento" abre **janela nativa do Windows** (não operável pelas ferramentas de navegador) | Método é **rápido para humano**, mas o **upload não é automatizável** pelas ferramentas Chrome neste site legado. Para automação, usar o método **Documento ▸ Criar a Partir de Modelo** (não exige upload). Eventual automação do anexo exigiria computer-use operando o diálogo nativo do Windows (frágil) |
+| 18/06/2026 | IPe antigo — Chrome (computer-use) | **Renderizador congela** intermitentemente ("CDP Page.captureScreenshot timed out / renderer frozen") e a **paginação pula sozinha** (clique numa página processando leva à última página); seletor itens/pág pode mudar 5↔10 | Ao congelar: **wait 5–6s e re-screenshot** (recupera sozinho). Persistir progresso por nº no log a cada peça. Conferir o nº da página e a linha no screenshot ANTES de clicar abrir. Fila ord. Data Prevista crescente: páginas iniciais=vencidos(vermelho), última=datas futuras(branco) |
+
+| 19/06/2026 | IPe antigo — Chrome (renderer) | **Toast "Documento incluído com sucesso!" pode aparecer com "Número do Documento" em branco** durante glitch severo (tela tilada/fragmentada, screenshots em timeout). Risco de concluir errado: (a) achar que NÃO salvou e **recriar → duplicata**; (b) achar que salvou e seguir sem ter salvo | No 2050568-53.2026 (19/06): após Utilizar+nome+End, a tela glitchou (tilada), recuperou mostrando toast de sucesso MAS "Número do Documento" em branco. Verifiquei em **Documentos** e o PEDIDO DE PRAZO **estava lá (doc 9, 19/06/2026)** — o toast era real | **Não confiar no toast nem no campo durante glitch.** Verificar o estado real em **Procedimento ▸ Documentos** procurando um doc "PEDIDO DE PRAZO" com **data de hoje** (paginar até o fim). Só então decidir recriar ou seguir. A data de criação = hoje é o discriminador |
+| 19/06/2026 | IPe antigo — Chrome (sessão) | **A aba pula sozinha para o SSO do IPe NOVO** (`sso.ipe-policiacivil.sp.gov.br/auth/realms/dipol/...redirect→inquerito.ipe-policiacivil...`), não só para o SPJ. Aí toda ação dá **"Permission denied for this action on this domain"** (extensão sem permissão nesse domínio) | Ocorreu após glitch severo no 2050568. `tabs_context` mostrou a URL do SSO novo | **Re-`navigate`** para `http://inquerito.policiacivil.sp.gov.br/inquerito/` (IPe antigo) — a sessão do IPe antigo continua viva (não pede login de novo) e o **zoom volta ao normal**. Conferir o que ficou salvo antes de prosseguir |
+| 19/06/2026 | IPe antigo — Buscar Procedimento (loop estável) | Confirmado o loop **Buscar Procedimento ▸ Nº Inicial+Ano ▸ Buscar ▸ lápis(Editar) ▸ Documentos ▸ Criar a Partir de Modelo** funciona bem e é determinístico. Roster Cart 07 Milton: **João é LINHA 2** (Paulo 1, João 2, Leonardo 3, Milton 4). Cart 06 Bianca: Paulo l.1, João l.4. Cart 05 Jose Carlos: Paulo l.1, João l.4 | Sessão 19/06 criou 4 pedidos (docs 17/8/7/9) com esse loop | Manter o loop. O `End` para revelar Salvar funciona; após Salvar conferir Nº do doc OU (se glitch) a lista de Documentos por data |
+| 22/06/2026 | IPe antigo — Caixa de Entrada de **Notificações** (frame `body` = `pages/inquerito/notificacoes/index.faces`) | **O frameset não é lido por DOM-tools** (get_page_text/find/read_page só veem o `<frameset>`); ler via `window.frames[1].document` no `javascript_tool`. Tabela = `tab:formNotificacoes:notifTable` (cols Tipo/Data/Assunto/Visualizar). Paginação só **5 ou 10/página** (badge: 12.858 não-lidas / **Total 14.016 = 2.804 págs** em conta de Leonardo/DEL.POL.PIQUETE, intimações de Aparecida) | Para LER a listagem em massa: scrape `notifTable tbody tr` por página + clicar próxima. Sem campo `_selection` padrão (a lupa é widget por linha `notifTable:N:formNotificacoesLupa`). **NÃO há "marcar TODAS como lidas" global** |
+| 22/06/2026 | IPe antigo — Notificações: **MÉTODO QUE FUNCIONA p/ marcar lida** | Com 10/página: **clique REAL** (mouse, não JS) no **checkbox-mestre do cabeçalho** (≈565,232) → espera 2s (envelope habilita) → **clique real no envelope-aberto "Marcar Como Lida"** (≈565,190). Confirmado: badge caiu 12.858→12.848 e 12.848→12.818; linhas viram classe **"normal"** (peso 400). Detector lida×não-lida: `td[3]` com `fontWeight>=600` = **não lida (classe "bold")**; <600 = lida. **Não precisa recarregar p/ verificar** — basta reler a classe da linha. O badge vermelho só atualiza ao **recarregar o frame** (`window.frames[1].location.reload()`), e o reload **reseta p/ página 1 e 5/linha** | Paginar SEM recarregar via widget: `PrimeFaces.widgets[...].paginator.setPage(idx)` (id `tab:formNotificacoes:notifTable`; 0-indexed). Botão Marcar Lida e checkbox-mestre ficam em coords **fixas**; a seta "próxima" do paginador **muda de lugar** (use setPage). Clique JS no checkbox/botão **não registra seleção** — só clique real. **lixeira=`btLixeira` Excluir — NUNCA TOCAR** |
+| 22/06/2026 | IPe antigo — Notificações: **MULTIPLICADOR — aumentar linhas/página via JS** (DESCOBERTA-CHAVE) | O dropdown de itens/página só oferece 5/10, MAS dá para injetar uma opção maior e o servidor aceita: `var s=frame.document.querySelector('.ui-paginator-rpp-options'); var o=document.createElement('option');o.value='500';o.text='500';s.appendChild(o); s.value='500'; s.dispatchEvent(new Event('change',{bubbles:true}))`. Testado 200, 500 e **2000 linhas/página funcionam** (2000 → só 8 páginas; 500 → 29 páginas). Reduz a varredura de ~1.300 páginas para ~29 (a 500) ou ~8 (a 2000) | **500/página é o ponto ótimo** (renderiza e marca rápido; 2000 é pesado e o "marcar" demora ~25-30s, frágil). Cadência por página que funcionou: (1) **reset do checkbox-mestre via JS** (`thead .ui-chkbox-box` → remove `ui-state-active` e input.checked=false) — ESSENCIAL: o mestre é toggle e o estado "marcado" GRUDA ao paginar, fazendo o clique alternar ON/OFF (sel=ALL,NONE,ALL...); (2) **clique REAL** no mestre (≈565,232); (3) wait ~4s; (4) **clique REAL** no envelope (≈565,190); (5) wait ~10s; (6) verificar classe bold. Paginar via `dt.paginator.setPage(dt.paginator.cfg.page+1)` |
+| 22/06/2026 | IPe antigo — Notificações: **"NONE" no DOM ≠ persistido no servidor** (CAUTELA) | Ao clicar "Marcar Como Lida", as linhas **perdem o negrito na tela na hora (otimista)**, mas a persistência server-side demora. Se avançar de página rápido demais, parte NÃO salva. Resultado real da sessão 22/06: badge **12.858 → 8.026** (≈4.832 lidas), mesmo o DOM mostrando "NONE" em muitas páginas. A **cauda (páginas 25–29 a 500/linha = rows ~12.001–14.061) falhou** (voltou MANY). Verificação por amostra depois: página 5 reduziu de ~500 p/ **16 bold** (persistiu bem) — persistência é parcial/variável | **Só o BADGE (após reload) é verdade**; reload reseta p/ página 1 e 5/linha. Próxima sessão (site reiniciado/estável): refazer a varredura a 500/linha com **wait MAIOR após o envelope (~15-20s)** p/ garantir persistência antes de avançar; ao fim, reload e reconferir badge; repetir passes até o badge zerar. Estado em 22/06 ao pausar: **~8.026 não lidas**, total 14.061. Site ficou **instável (telas em branco, render congelando)** → João pediu pausa p/ reiniciar |
+
+## Como usar este arquivo
+
+- **Bateu num comportamento estranho?** Procure aqui primeiro.
+- **Descobriu algo novo?** Acrescente uma linha (com data) agora — não depois.
+- Entraves que viraram regra de produção estão também em `SKILL.md` (regra do flagrante; ler todos os documentos).
+
+========== aprendizado-continuo/procedimentos-aprendidos ==========
+# Procedimentos Aprendidos — registro vivo (APRENDIZADO CONTÍNUO)
+
+> Passo a passo validado na prática. Acrescentar/refinar sempre que um procedimento for aprendido ou melhorado, com data.
+
+## Consulta de laudo — Segunda Via de Laudos (SPTC) — 01/06/2026
+
+1. Acessar `http://10.78.1.6/SegundaViaDeLaudos/Login/IndexExpired`. **Login manual do servidor** (o agente NUNCA insere credenciais).
+2. Menu **Consulta de Laudos** → seção **CONSULTA POR ORIGEM**.
+3. **Tipo de Origem:** `BO / RDO / TC`. **Número/Ano:** nº do BO (alfanumérico) + ano. **Órgão:** em branco.
+4. **Pesquisar na base:** `IC` (padrão) ou `IML` (necropsia, lesões).
+5. **Consultar.** Resultado: lista (nº laudo, natureza, status) ou "Não foram encontrados resultados" (laudo não emitido).
+6. Status **"Laudo em Elaboração"** = nº atribuído mas não concluído → registrar o nº; peso líquido/lacre ficam pendentes.
+   Quando concluído (Ação = visualizar/baixar) → extrair **nº do laudo, lacre do laudo, peso líquido** e lançar no inventário (planilha 5), controle de armas (planilha 7) e custódia da mestra (Status → "Periciado").
+
+> Detalhe completo também em `Conhecimento/85-Laudos/SOP_Consulta_Segunda_Via_Laudos.md`.
+
+## Caça ao laudo — onde procurar — 01/06/2026
+
+Checar nesta ordem: **(1) Segunda Via de Laudos** → **(2) SPJ Documentos** (Ações → Documentos) → **(3) SPJ Anexos** (Ações → Anexos; campo de busca por palavra "laudo") → **(4) dentro do IP**. Se não houver em nenhum, o laudo ainda não existe.
+
+## Busca e leitura de BO no SPJ — 01/06/2026
+
+1. **Consultas → Consultar BO** → campo "Número do BO" (usar `form_input` pelo ref; clicar o campo solto às vezes não fixa o texto) + Ano → **Pesquisar**.
+2. **Ações** da linha → menu: Editar / **Detalhar BO** / **Visualizar PDF do BO** / **Documentos** / **Anexos** / Histórico de Acesso / Histórico de Despacho.
+3. **Detalhar BO**: seções coladvisáveis (Naturezas, Pessoa Física, Entorpecentes, Objetos, Armas...) — clicar para expandir; `get_page_text` lê o que está expandido (mas **não confiar só nisso** — ver entrave).
+4. **Documentos / Anexos**: cada item tem Ação "Visualizar". O **Auto de Exibição e Apreensão** é a peça autoritativa (itens, pesos, lacres).
+5. Para ler PDF que não rola: zoom-out, navegar por página, ou baixar.
+
+## Re-auditoria documental dos BOs — 01/06/2026
+
+- Priorizar **flagrante / custódia** (onde erro de tela custa caro: tipificação, maior×menor, cadeia de custódia).
+- Os **PDFs de BO já baixados** (`projeto-download-bos/BASE_DADOS_BOS/BO-*.pdf`) costumam trazer o auto/apreensão com lacres, pesos e condição de menor — **ler esses primeiro** (rápido, sem SPJ); ir ao SPJ só para o que faltar.
+- Os índices `DOCS-*.json` listam os documentos do BO (úteis para ver se há laudo), mas **não** trazem o conteúdo.
+- Registrar cada BO conferido na lista `Planilhas de controle cartorário/RE-AUDITORIA_DOCUMENTOS_BOs.xlsx` (Doc. conferido? / Divergência / Ação).
+
+## Gravação na mestra/planilhas — protocolo — 26-29/05 a 01/06
+
+Backup com timestamp em `backups/` → prévia célula a célula → confirmação do Investigador → aplicar. Não tocar a coluna de Análise Aprofundada. Bandeiras de custódia só `Sim`/`Não`. Validar status/escrivão/tipo contra a aba `LISTAS`.
+
+## Conferência de IP instaurado no SPJ — Portaria × Flagrante — 02/06/2026
+
+Cruzamento da exportação `IPS INSTAURADOS SPJ` (auditoria de circunscrição, coluna "O IP pertence a esta unidade?"):
+
+1. **Separar por tipo.** IP de **Portaria/Requisição** → site antigo. IP de **Flagrante** → IPe (sistemas diferentes).
+   - **Portaria/Req:** `http://inquerito.policiacivil.sp.gov.br/inquerito/` → login (RG/senha do João — agente NÃO digita credencial) → **Procedimento → Buscar Procedimento** → campo **Nº Inicial Procedimento** (auto-preenche o Final) + **Ano 2026** → **Buscar**. Ler coluna **Delegacia**: `DEL.POL.APARECIDA` → **SIM**; outra → **NÃO** (anotar destino na coluna do "caso negativo").
+   - **Flagrante:** `https://inquerito.ipe-policiacivil.sp.gov.br/procedimentos/meus-procedimentos/inqueritos-policiais/listar`.
+2. **Lote:** esperar 3s+ por consulta e conferir o nº no campo antes de ler (pop-up "Em processamento" pula consultas).
+3. **Vazio no site antigo ≠ "não é nosso"** — se for flagrante, é esperado dar "Nenhum registro"; conferir no IPe.
+4. O **veredito SIM/NÃO do flagrante** pode vir direto da planilha `FLAGRANTES LAVRADOS SPJ` já preenchida (pertence + destino), dispensando reconsulta.
+
+> Caso de referência (MAIO/2026): 35 instaurados sob DM Aparecida → 27 Portaria todos SIM (verificados 1 a 1) + 4 flagrantes SIM + 4 flagrantes NÃO (2 Roseira, 2 Potim).
+
+## Atribuição de escrivão por IP (split da Produção) — coluna "Equipe" do SPJ antigo — 02/06/2026
+
+Para descobrir em qual cartório/escrivão um IP está (ex.: split de Relatados por escrivão na Produção Cartorária):
+
+1. SPJ antigo → **Buscar Procedimento** → Nº Inicial = Nº Final = nº do IP + **Ano** correto (o ano varia! relatados podem ser de 2020–2026) → Buscar.
+2. Ler a coluna **"Equipe"** do resultado: traz `CARTORIO 0X - NOME DO ESCRIVÃO`.
+3. **Mapa de cartórios DM Aparecida (maio/2026):** `CARTÓRIO 05 = José Carlos Aluvino` · `CARTÓRIO 06 = Bianca Seixas Valezzi` · `CARTÓRIO 07 = Milton Moreira dos Reis Jr.` · `CARTÓRIO 01 PLANTÃO` = sem escrivão fixo (plantão).
+4. Flagrante não aparece no antigo → atribuir pelo escrivão da mestra/planilha de flagrantes (ex.: 2530015 = José Carlos), ou conferir no IPe.
+
+> Caso MAIO/2026: 46 relatados → Bianca 22, Milton 17, José Carlos 7. (Instaurados "novos" o escrivão-chefe distribui manualmente.)
+
+## Distribuição de instaurados "novos" (plantão) + regra DDM→Bianca — 02/06/2026
+
+IPs instaurados no plantão aparecem como **CARTÓRIO 01 PLANTÃO** (sem escrivão). Distribuir assim:
+
+1. Listar os PLANTÃO via Buscar Procedimento (coluna Equipe = "CARTÓRIO 01 PLANTÃO").
+2. Para cada um, abrir o **detalhe do procedimento** (ícone lupa/Visualizar na coluna Ações) → mostra **Legislação/Capitulação + Assunto Principal + Competência**.
+3. **Regra DDM → Bianca:** se for caso de Defesa da Mulher (sinais: `Lei 11.340/06 - Lei Maria da Penha`, `Competência: Juizado Criminal - Violência Doméstica`, art. 129 §9, descumprimento de MPU art. 24-A), vai para a **Bianca**.
+4. Os demais (não-DDM): **alternar entre José Carlos e Milton**.
+5. Travas de sistema: o pop-up "Em processamento" **congela o renderer** em rajada — usar espera ≥3-4s, lotes de ≤4, e recarregar a página se travar. Busca por faixa (Nº Inicial→Final) tem **limite de 50** de intervalo.
+
+> Caso MAIO/2026: 13 plantão → 5 DDM p/ Bianca (2159996,2160176,2161865,2166991,2168914) + 8 não-DDM alternados (JC: 2158458,2160962,2166642,2166729; Milton: 2160320,2161057,2166672,2166785). Instaurados final: Bianca 19, JC 4, Milton 4.
+
+## Gerar a LISTA do período — SPJ → Livros Obrigatórios (v4.0) — 10/06/2026 (1ª execução, tela capturada)
+
+Tela: **Consultas → Livros Obrigatórios** (`/listagem-bos/relatorio`), título "Gerar Livros". Campos do **Filtro de pesquisa**:
+
+1. **Livro** (dropdown) — padrão `Livro de BO` (é o que queremos).
+2. **Delegacia** (searchbox autocomplete) — = o **filtro de unidade**. Já vem `DEL.POL.APARECIDA`. Para trocar: clicar no campo, `Ctrl+A`+`Delete`, digitar (ex.: `GUARATINGUETA`), **rolar a lista** e clicar a opção. O botão "×" ao lado limpa o **Livro**, não a Delegacia — limpar a Delegacia por Ctrl+A.
+3. **Circunscrição** (searchbox) — = **"Região do Fato"**. Para a 2ª fonte (Guará-plantão), digitar `APARECIDA` e escolher `DEL. POL. APARECIDA` (cuidado: existe também `APARECIDA OESTE`).
+4. **Data inicial / Data final** (obrigatórias, formato `dd/mm/aaaa`) — **NÃO** preencher por digitação (form_input não fixa); **abrir o seletor de calendário** (ícone) e **clicar o dia**. Hora inicial/final (`hh:mm`) são **opcionais** — deixar em branco pega o dia inteiro.
+5. **Período** (dropdown) — atalho opcional; deixei `Selecione` e usei datas manuais.
+6. Botões: **Limpar · Gerar PDF · Exportar planilha** (verde). "Exportar planilha" baixa CSV no micro do João.
+
+**Atalho de extração (sem depender do download):** o "Exportar planilha" dispara um GET que retorna o CSV. Endpoint (host **api**, Bearer **sem cookie**):
+`GET https://api.ipe-policiacivil.sp.gov.br/cadastros/ocorrencias/boletins/pdf/listagem-bo` com query `listagemBOEnum=LIVRO_BO`, `codigoDelegacia=<cod>`, `idCircunscricao=<id ou vazio>`, `dataInicial=AAAA-MM-DD`, `dataFinal=AAAA-MM-DD`, `formato=CSV`.
+- **Códigos capturados:** Aparecida = **codigoDelegacia 130201** (idCircunscricao vazio = todos). Guará-Plantão (Região do Fato Aparecida) = **codigoDelegacia 130514 + idCircunscricao 2388**.
+- **CSV** é `;`-delimitado, **latin1** (acentos vêm como �). Colunas (8): `BO | Flagrante | Natureza | Vítima | Indiciado | Finalizado | Data Registro | Hora Registro`. O campo BO vem como `IS2689 - 1/2026` (nº - versão/ano).
+- **Token:** o `localStorage["__tok"]` (já com prefixo "Bearer ") pode estar **defasado → 401**. Pegar o token vivo via interceptor (`setRequestHeader`/`fetch` → `window.__cap`) e **disparar o Exportar uma vez** para popular o `__cap`; aí o fetch com `credentials:'omit'` retorna 200.
+- O `javascript_tool` **bloqueia** retorno com URL/`?...=` ("Cookie/query string data"): guardar o CSV em `window.__livro...` e devolver só texto ultra-limpo (status/linhas/campos por `§`).
+
+## Ler um BO INTEIRO pela API (getPdf + pdf.js + texto dos documentos) — 10/06/2026
+
+Pipeline validado no lote de flagrantes (IT2653, IS7882, RS6387). Host **api**, **Bearer sem cookie** (`credentials:'omit'`); token vivo em `window.__cap` (interceptor + clicar Página Inicial popula).
+
+1. **Resolver o id:** `GET /cadastros/ocorrencias/boletins?tipoBusca=R&rdo=false&ano={AAAA}&numero={BO}&numeroInicial={BO}&page=0&size=5` → **o id está em `content[0].id`** (alias `content[0].idBo`), **NÃO** `idOcorrencia` (esse campo não existe nesta resposta — correção 10/06 no BO IT5787). Os endpoints getPdf/documentos/anexos usam esse `id`. Metadados úteis na mesma resposta: `flagrante`, `finalizado`, `medidaProtetiva` (MPU), `nomeCircunscricao`, `dataComunicacao`. **Atenção ao ANO** (RS6387 é **/2025** — buscar com ano 2025; o ano do BO ≠ ano em que reaparece no Livro).
+2. **PDF consolidado + SHA-256:** `GET /cadastros/ocorrencias/boletins/getPdf/{id}` como **arrayBuffer** → `crypto.subtle.digest('SHA-256',buf)`; extrair texto com **pdf.js** (CDN cdnjs 3.11.174; `getDocument({data:buf.slice(0)})` → `getTextContent` por página). É a **fonte autoritativa** (naturezas, partes, **Auto de Apreensão com lacres/pesos**, despacho, solução, "Procedimentos Instaurados/CNJ").
+3. **Lista de documentos:** `GET /cadastros/documentos/?idOcorrencia={id}&page=0&size=50`; o modelo está em `d.modelo.descricao` (ex.: AUTO DE PRISÃO EM FLAGRANTE, TERMO DE INTERROGATÓRIO, AUTO DE EXIBIÇÃO E APREENSÃO, Transcrição Automática de Oitiva).
+4. **CONTEÚDO de cada documento:** `GET /cadastros/documentos/{idDoc}` → campo **`texto`** (HTML). É assim que se lê **interrogatório/oitiva/auto na íntegra** (os anexos não baixam — entrave). Decodificar entidades com `textarea.innerHTML=...; textarea.value`; limpar dígitos/hashes antes de retornar (filtro do tool). `pessoaFisica.nome` diz de quem é o termo.
+5. **Anexos:** `GET /cadastros/anexos/?idOcorrencia={id}&page=0&size=80` → só **nomes** (`nomeArquivo`): LaudoPericial, LaudoIMLpessoa, FolhaAntecedentes, fotos. **O arquivo não baixa** (500/504) — registrar existência; caçar laudo/antecedentes na Segunda Via.
+
+> Imagens sensíveis (criança/adolescente) — NUNCA abrir/descrever; só registrar (CPP 158-A; ECA). Massa do auto é **bruta**; massa líquida só no laudo IC.
+
+========== cadastro-bo-mestra/entraves-sistemas ==========
+# Entraves dos Sistemas — registro vivo (APRENDIZADO CONTÍNUO)
+
+> Memória viva dos comportamentos não óbvios / armadilhas dos sistemas usados no Cartório de Aparecida.
+> **Consultar antes/durante** o trabalho nesses sistemas. **Registrar todo novo entrave** ao descobri-lo, com data.
+> Não apagar itens antigos; se o sistema corrigir um, marcar `[resolvido em DD/MM]`.
+
+| Data | Sistema | Entrave | Sintoma | Contorno |
+|---|---|---|---|---|
+| 01/06/2026 | SPJ | **Telas-resumo mentem.** As abas Naturezas / Entorpecentes / Objetos do "Detalhar BO" podem estar erradas ou incompletas | Ex.: HN0449 — aba Naturezas dizia "ilícito extrapenal (tema 506)/porte"; o **Auto de Apreensão** dizia **tráfico Art. 33 + ATO INFRACIONAL (menor)** | **Sempre ler o Auto de Exibição e Apreensão** (Ações → Documentos) e os Anexos. Nunca classificar pela tela-resumo |
+| 01/06/2026 | SPJ | **Visualizador de PDF embutido não rola** por roda do mouse nem por teclado (PageDown/setas) | A página externa rola, o PDF não; conteúdo fica preso na 1ª parte | Usar o botão **−/zoom-out** do visualizador para caber mais texto; navegar por página (campo "1/2"); ou **baixar o documento** e ler no sandbox. Cuidado: vários cliques de zoom seguidos travam o renderizador (esperar e re-tirar screenshot) |
+| 01/06/2026 | SPJ | **Laudo de constatação/definitivo nem sempre está anexado** ao BO | Em Documentos só há "REQUISIÇÃO DE IC" (o pedido); em Anexos, só fotos | Caçar laudo em **4 lugares**: Segunda Via de Laudos + SPJ Documentos + SPJ Anexos (usar a busca por palavra "laudo") + dentro do IP. Se não houver em nenhum, o laudo não existe ainda |
+| 01/06/2026 | Segunda Via de Laudos (SPTC) | **Sessão expira muito rápido** | Uma consulta "fica carregando" (spinner) por 30s+ — **parece lentidão da busca, mas é a sessão caindo**. Recarregar a página volta para o login | Refazer login. Buscas em sessão válida voltam **em segundos** (com ou sem resultado). Não confundir spinner longo com "encontrou muita coisa" |
+| 01/06/2026 | Segunda Via de Laudos | **Status "Laudo em Elaboração"** = número de laudo já atribuído, mas perícia **não concluída** | Aparece o nº/ano do laudo e a natureza, mas o botão de Ação é o selo "Laudo em Elaboração" (sem visualizar/baixar) | Registrar o **nº do laudo**, mas **peso líquido e lacre do laudo NÃO existem ainda** — deixar pendentes. Ex.: FA5177 → laudo 132318/2026 (Maconha), em elaboração em 01/06 |
+| 01/06/2026 | Segunda Via de Laudos | **Laudo definitivo de droga demora semanas a meses** | Apreensões recentes voltam "Não foram encontrados resultados" | Não estranhar: para o mês corrente é normal não haver laudo. Reconsultar perto do fechamento. Referência: FA5177 (01/04) ainda "em elaboração" 2 meses depois |
+| 01/06/2026 | Segunda Via de Laudos | Busca por **Tipo de Origem** — o BO fica em **"BO / RDO / TC"** (não existe opção "BO" isolada) | Selecionar "BO" falha | Selecionar exatamente **"BO / RDO / TC"**; nº do BO alfanumérico + ano; órgão em branco; base **IC** (trocar p/ **IML** se for exame do IML) |
+| 01/06/2026 | Extração SPJ (drogas/armas) | A extração lista por **região do fato**, não por quem registrou/custodia | BO de outra unidade aparece como "Aparecida" (ex.: HN0449, lavrado no plantão de Guaratinguetá) | Cruzar com a mestra: confirmar quem **registrou** e onde está a **custódia** antes de contar como nosso. Droga remetida a Aparecida → é nossa para inventário, mesmo sendo "BO de fora" |
+| 01/06/2026 | Mestra (CARTORIO_CENTRAL) | **Layout muda** (v2.1 removeu Nº Controle e Escrivão Resp. da aba BOs → bandeiras de custódia migraram p/ K–Q) | Scripts/refs antigos apontam coluna errada | Conferir o cabeçalho real (linha 4 da aba BOs) antes de gravar; o `mapa-abas.md` desta skill pode estar atrás do arquivo real — o **arquivo manda** |
+| 01/06/2026 | Mestra / abas com fórmula | Coluna A (Nº) e resumos usam fórmula (`=IF(B<>"",ROW()-n,"")`, `COUNTA`) | Sobrescrever a fórmula de A quebra a numeração; deixar B vazio tira a linha da contagem | Não sobrescrever fórmula de A; preencher a chave (B) para a linha contar. Em IPs eletrônicos sem nº físico, usar o IPe como identificador em B |
+
+## Como usar este arquivo
+
+- **Bateu num comportamento estranho?** Procure aqui primeiro.
+- **Descobriu algo novo?** Acrescente uma linha (com data) agora — não depois.
+- Entraves que viraram regra de produção estão também em `SKILL.md` (regra do flagrante; ler todos os documentos).
+
+========== cadastro-bo-mestra/procedimentos-aprendidos ==========
+# Procedimentos Aprendidos — registro vivo (APRENDIZADO CONTÍNUO)
+
+> Passo a passo validado na prática. Acrescentar/refinar sempre que um procedimento for aprendido ou melhorado, com data.
+
+## Consulta de laudo — Segunda Via de Laudos (SPTC) — 01/06/2026
+
+1. Acessar `http://10.78.1.6/SegundaViaDeLaudos/Login/IndexExpired`. **Login manual do servidor** (o agente NUNCA insere credenciais).
+2. Menu **Consulta de Laudos** → seção **CONSULTA POR ORIGEM**.
+3. **Tipo de Origem:** `BO / RDO / TC`. **Número/Ano:** nº do BO (alfanumérico) + ano. **Órgão:** em branco.
+4. **Pesquisar na base:** `IC` (padrão) ou `IML` (necropsia, lesões).
+5. **Consultar.** Resultado: lista (nº laudo, natureza, status) ou "Não foram encontrados resultados" (laudo não emitido).
+6. Status **"Laudo em Elaboração"** = nº atribuído mas não concluído → registrar o nº; peso líquido/lacre ficam pendentes.
+   Quando concluído (Ação = visualizar/baixar) → extrair **nº do laudo, lacre do laudo, peso líquido** e lançar no inventário (planilha 5), controle de armas (planilha 7) e custódia da mestra (Status → "Periciado").
+
+> Detalhe completo também em `Conhecimento/85-Laudos/SOP_Consulta_Segunda_Via_Laudos.md`.
+
+## Caça ao laudo — onde procurar — 01/06/2026
+
+Checar nesta ordem: **(1) Segunda Via de Laudos** → **(2) SPJ Documentos** (Ações → Documentos) → **(3) SPJ Anexos** (Ações → Anexos; campo de busca por palavra "laudo") → **(4) dentro do IP**. Se não houver em nenhum, o laudo ainda não existe.
+
+## Busca e leitura de BO no SPJ — 01/06/2026
+
+1. **Consultas → Consultar BO** → campo "Número do BO" (usar `form_input` pelo ref; clicar o campo solto às vezes não fixa o texto) + Ano → **Pesquisar**.
+2. **Ações** da linha → menu: Editar / **Detalhar BO** / **Visualizar PDF do BO** / **Documentos** / **Anexos** / Histórico de Acesso / Histórico de Despacho.
+3. **Detalhar BO**: seções coladvisáveis (Naturezas, Pessoa Física, Entorpecentes, Objetos, Armas...) — clicar para expandir; `get_page_text` lê o que está expandido (mas **não confiar só nisso** — ver entrave).
+4. **Documentos / Anexos**: cada item tem Ação "Visualizar". O **Auto de Exibição e Apreensão** é a peça autoritativa (itens, pesos, lacres).
+5. Para ler PDF que não rola: zoom-out, navegar por página, ou baixar.
+
+## Re-auditoria documental dos BOs — 01/06/2026
+
+- Priorizar **flagrante / custódia** (onde erro de tela custa caro: tipificação, maior×menor, cadeia de custódia).
+- Os **PDFs de BO já baixados** (`projeto-download-bos/BASE_DADOS_BOS/BO-*.pdf`) costumam trazer o auto/apreensão com lacres, pesos e condição de menor — **ler esses primeiro** (rápido, sem SPJ); ir ao SPJ só para o que faltar.
+- Os índices `DOCS-*.json` listam os documentos do BO (úteis para ver se há laudo), mas **não** trazem o conteúdo.
+- Registrar cada BO conferido na lista `Planilhas de controle cartorário/RE-AUDITORIA_DOCUMENTOS_BOs.xlsx` (Doc. conferido? / Divergência / Ação).
+
+## Gravação na mestra/planilhas — protocolo — 26-29/05 a 01/06
+
+Backup com timestamp em `backups/` → prévia célula a célula → confirmação do Investigador → aplicar. Não tocar a coluna de Análise Aprofundada. Bandeiras de custódia só `Sim`/`Não`. Validar status/escrivão/tipo contra a aba `LISTAS`.
